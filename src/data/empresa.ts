@@ -296,6 +296,12 @@ export const faqGeral: { p: string; r: string }[] = [
   { p: 'Quais as formas de pagamento?', r: empresa.pagamento },
 ]
 
+/* ------------------------------------------------------------------ */
+/* Posts do Instagram exibidos na Início (código que vem depois de /p/ */
+/* no link do post). Para trocar, basta substituir os códigos.         */
+/* ------------------------------------------------------------------ */
+export const instagramPosts = [{ code: 'C20n_cNrEqB' }, { code: 'CsB2cRhrPPh' }, { code: 'CqbFEjUgffN' }]
+
 export const navLinks = [
   { to: '/', label: 'Início' },
   { to: '/sobre', label: 'O estúdio' },

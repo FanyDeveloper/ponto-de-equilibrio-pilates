@@ -25,6 +25,7 @@ import MapEmbed from '../components/MapEmbed'
 import FinalCTA from '../components/FinalCTA'
 import Masonry from '../components/reactbits/Masonry'
 import Stars from '../components/Stars'
+import InstagramPosts from '../components/InstagramPosts'
 import { WaIcon } from '../components/Header'
 
 const passos = [
@@ -94,8 +95,8 @@ export default function Home() {
       <section ref={hero} className="relative overflow-hidden pt-28 md:pt-36">
         <Noise />
         <div className="container-x relative">
-          <div className="grid gap-10 md:grid-cols-12 md:items-end">
-            <div className="md:col-span-8">
+          <div className="grid gap-12 md:grid-cols-12 md:items-center md:gap-8">
+            <div className="md:col-span-7 md:pr-6">
               <div data-h="meta" className="mb-7">
                 <GoogleRating compact />
               </div>
@@ -105,15 +106,13 @@ export default function Home() {
                 delay={0.1}
                 stagger={0.045}
                 text="Pilates nos aparelhos na Trindade, em turmas pequenas e com *atenção de verdade.*"
-                className="font-display text-[2.15rem] leading-[1.06] text-ink sm:text-[3rem] lg:text-[4rem]"
+                className="font-display text-[2.15rem] leading-[1.06] text-ink sm:text-[2.9rem] lg:text-[3.7rem]"
               />
-            </div>
-            <div className="md:col-span-4 md:pb-2">
-              <p data-h="sub" className="text-[1.08rem] text-mist">
+              <p data-h="sub" className="mt-8 max-w-lg text-[1.08rem] text-mist md:text-[1.15rem]">
                 O estúdio da Susy Aguiar em Florianópolis, para quem busca{' '}
                 <RotatingText words={['melhor postura', 'menos dor', 'mais força', 'equilíbrio', 'respirar melhor']} className="font-semibold text-pine" />.
               </p>
-              <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
+              <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4">
                 <div data-h="cta">
                   <Magnet>
                     <ButtonPrimary href={waLink()} icon={<WaIcon size={18} />}>
@@ -126,25 +125,22 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="relative mt-12 md:mt-16">
-            <RevealImage
-              priority
-              src="/images/sala-frase-1200.webp"
-              srcSet="/images/sala-frase-640.webp 640w, /images/sala-frase-1200.webp 1200w"
-              sizes="(min-width: 1280px) 1200px, 94vw"
-              width={1200}
-              height={758}
-              alt="Sala do Ponto de Equilíbrio Pilates com Chairs e Reformer de madeira, bolas suíças na parede e a frase de Joseph Pilates: é a mente que esculpe o corpo"
-              className="aspect-[4/5] rounded-[28px] bg-sand sm:aspect-[16/8]"
-              imgClassName="object-[38%_50%]"
-            />
-            <div data-h="meta" className="absolute bottom-4 left-4 right-4 flex flex-wrap items-end justify-between gap-3 sm:bottom-6 sm:left-6 sm:right-6">
-              <p className="rounded-2xl bg-paper/90 px-5 py-3 text-[0.92rem] text-ink backdrop-blur">
+            <div className="relative md:col-span-5">
+              <CenterMotif scrub={false} className="pointer-events-none absolute -right-24 -top-16 w-[420px] text-pine/20" />
+              <RevealImage
+                priority
+                src="/images/alunos-praticando-663.webp"
+                width={663}
+                height={750}
+                sizes="(min-width: 768px) 40vw, 92vw"
+                alt="Aula no estúdio: uma aluna alonga sobre a Chair enquanto um aluno faz exercício no Cadillac, sobre o piso emborrachado verde"
+                className="relative aspect-[4/5] rounded-[28px] bg-sand"
+                imgClassName="object-[40%_50%]"
+              />
+              <p data-h="meta" className="absolute -bottom-5 left-4 rounded-2xl border border-line bg-paper/95 px-5 py-3 text-[0.92rem] text-ink shadow-[0_18px_40px_-24px_rgba(20,40,34,0.5)] backdrop-blur md:-left-8">
                 <span className="font-semibold">Espaço novo</span> na Lauro Linhares, Trindade
               </p>
-              <CenterMotif scrub={false} className="hidden h-24 w-24 text-bone/80 sm:block" />
             </div>
           </div>
         </div>
@@ -320,6 +316,8 @@ export default function Home() {
 
       <Reviews />
 
+      <InstagramPosts />
+
       {/* GALERIA */}
       <section aria-labelledby="galeria-titulo" className="pb-24 md:pb-36">
         <div className="container-x">
@@ -327,7 +325,7 @@ export default function Home() {
             <SectionTitle id="galeria-titulo" text="Um espaço feito para *respirar*" className="max-w-2xl" />
             <ButtonSecondary to="/sobre#estrutura">Ver a estrutura</ButtonSecondary>
           </div>
-          <Masonry items={galeria.slice(0, 5)} />
+          <Masonry items={galeria.filter((g) => !g.src.includes('alunos-praticando'))} />
         </div>
       </section>
 

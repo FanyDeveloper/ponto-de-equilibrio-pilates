@@ -60,6 +60,10 @@ export default function Privacidade() {
               [CONFIRMAR: se for instalado Google Analytics ou Meta Pixel, atualizar este parágrafo.]
             </p>
             <p>
+              Os <strong>posts do Instagram</strong> na página inicial só são carregados se você aceitar os cookies ou clicar em “Mostrar
+              posts”. Quando carregados, o Instagram (Meta) pode gravar cookies próprios, conforme a política de privacidade da Meta.
+            </p>
+            <p>
               O <strong>mapa do Google</strong> só é carregado se você aceitar os cookies ou clicar em “Mostrar mapa”. Quando carregado, o
               Google pode gravar cookies próprios, conforme a política de privacidade do Google.
             </p>
