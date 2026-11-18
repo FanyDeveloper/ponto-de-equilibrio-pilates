@@ -333,7 +333,7 @@ export default function Home() {
       {/* LOCALIZAÇÃO */}
       <section aria-labelledby="local-titulo" className="pb-24 md:pb-36">
         <div className="container-x grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-5">
+          <div className="px-1 sm:px-3 md:col-span-5 md:self-center md:py-6 md:pl-8 md:pr-6 lg:pl-14">
             <SectionTitle id="local-titulo" text="Na Trindade, em *Florianópolis*" />
             <ul className="mt-10 space-y-6">
               <li className="flex gap-4">
