@@ -1,0 +1,130 @@
+@import 'tailwindcss';
+
+/*
+  Direção de arte: "O centro"
+  Verde-menta da parede da recepção + verde profundo + concreto quente do estúdio.
+  (Os nomes das variáveis vêm da base do projeto: "pine" = verde principal, "amber" = menta de destaque.)
+*/
+@theme {
+  --color-bone: #eeebe5;
+  --color-paper: #f8f6f2;
+  --color-sand: #dfdad0;
+  --color-line: #cfc8bc;
+  --color-ink: #1b1f1d;
+  --color-mist: #56605a;
+  --color-pine: #1f3b33;
+  --color-pine-deep: #142822;
+  --color-amber: #6db08f;
+  --color-amber-ink: #2f6b52;
+  --color-wood: #b98a5a;
+
+  --font-display: 'Unbounded', 'Arial Rounded MT Bold', ui-sans-serif, sans-serif;
+  --font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: auto;
+  }
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  body {
+    background: var(--color-bone);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    letter-spacing: -0.03em;
+    line-height: 1.06;
+    font-weight: 300;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: var(--color-pine);
+    color: var(--color-bone);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-amber-ink);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
+  }
+  /* Tratamento de cor único para todas as fotos */
+  .photo-grade {
+    filter: saturate(0.92) contrast(1.04) sepia(0.05) brightness(1.02);
+  }
+  /* Ruído sutil sobre fundos */
+  .grain {
+    position: relative;
+    isolation: isolate;
+  }
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.35;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .grain-dark::after {
+    mix-blend-mode: screen;
+    opacity: 0.25;
+  }
+  .rule {
+    height: 1px;
+    background: var(--color-line);
+  }
+  .mask-line {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    padding-bottom: 0.08em;
+    margin-bottom: -0.08em;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

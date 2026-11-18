@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# [CONFIRMAR: domínio definitivo]
+Sitemap: https://www.pontodeequilibriopilates.com.br/sitemap.xml
