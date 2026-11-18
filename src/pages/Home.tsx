@@ -25,7 +25,7 @@ import MapEmbed from '../components/MapEmbed'
 import FinalCTA from '../components/FinalCTA'
 import Masonry from '../components/reactbits/Masonry'
 import Stars from '../components/Stars'
-import InstagramPosts from '../components/InstagramPosts'
+import Agenda from '../components/Agenda'
 import { WaIcon } from '../components/Header'
 
 const passos = [
@@ -309,14 +309,12 @@ export default function Home() {
             ))}
           </ol>
           <div className="mt-14">
-            <ButtonPrimary to="/planos-e-horarios#agenda">Escolher horário da aula experimental</ButtonPrimary>
+            <ButtonPrimary to="/#agenda">Escolher horário da aula experimental</ButtonPrimary>
           </div>
         </div>
       </section>
 
       <Reviews />
-
-      <InstagramPosts />
 
       {/* GALERIA */}
       <section aria-labelledby="galeria-titulo" className="pb-24 md:pb-36">
@@ -328,6 +326,9 @@ export default function Home() {
           <Masonry items={galeria.filter((g) => !g.src.includes('alunos-praticando'))} />
         </div>
       </section>
+
+      {/* AGENDA DE AULA EXPERIMENTAL */}
+      <Agenda />
 
       {/* LOCALIZAÇÃO */}
       <section aria-labelledby="local-titulo" className="pb-24 md:pb-36">
